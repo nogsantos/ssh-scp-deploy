@@ -1,5 +1,62 @@
-# Container Action Template
+# SCP Deploy action
 
-To get started, click the `Use this template` button on this repository [which will create a new repository based on this template](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/).
+Action to send  dist files to a remote server with  scp command
 
-For info on how to build your first Container action, see the [toolkit docs folder](https://github.com/actions/toolkit/blob/master/docs/container-action.md).
+## Required params
+
+- `src`: Sorce dir to deploy
+- `host`: SSH address
+- `remote`: Remote dir path
+- `port`: SSH Port
+- `user`: SSH User name
+- `key`: Private key
+
+
+### To publish
+
+You must generate the ssh key and publish the public pair on your host. On git secrets, publish your private key
+
+Ex.:
+
+```bash
+ssh-keygen -t rsa -b 4096 -f ssh_publish -C <some@name>
+```
+
+## Example
+
+This is a nuxt universal application
+
+```yml
+name: MasterCI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Bucket actions
+        uses: actions/setup-node@v1
+        with:
+          node-version: 8
+      - run: npm i
+      - run: npm run test
+      - run: npm run generate
+      
+      - name: Publish
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: ./dist/*
+          host: ${{ secrets.SSH_HOST }}
+          remote: ${{ secrets.SSH_DIR }}
+          port: ${{ secrets.SSH_PORT }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+```

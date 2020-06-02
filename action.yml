@@ -1,12 +1,29 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
-inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+name: 'scp-deploy'
+description: 'Action to send  dist files to a remote server with  scp command'
+author: 'Fabricio Nogueira'
+inputs:
+  src:
+    description: 'Sorce dir to deploy'
+    required: true
+  host:
+    description: 'SSH address'
+    required: true
+  remote:
+    description: 'Remote dir path'
+    required: true
+  port:
+    description: 'SSH Port'
+    required: false
+    default: 22
+  user:
+    description: 'SSH User name'
+    required: true
+  key:
+    description: 'Private key'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.myInput }}
+branding:
+  icon: 'upload-cloud'
+  color: 'blue'
