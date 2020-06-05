@@ -1,7 +1,9 @@
 FROM alpine:3.10
 
-COPY LICENSE README.md /
+RUN apk upgrade --update \
+    apk add --no-cache openssh \
+    && rm -rf /tmp/* /usr/share/man /var/cache/apk/*
 
-COPY entrypoint.sh /entrypoint.sh
+COPY . /
 
 ENTRYPOINT ["/entrypoint.sh"]
