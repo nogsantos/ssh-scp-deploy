@@ -1,4 +1,4 @@
-# SCP Deploy action
+# SSH-SCP Deploy action
 
 Action to send  dist files to a remote server with  scp command
 
