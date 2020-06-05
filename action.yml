@@ -1,5 +1,5 @@
-name: 'scp-deploy'
-description: 'Action to send  dist files to a remote server with  scp command'
+name: 'SCP deploy action'
+description: 'Action to send dist files to a remote server with scp command'
 author: 'Fabricio Nogueira'
 inputs:
   src:
