@@ -4,7 +4,7 @@ Action to send  dist files to a remote server with  scp command
 
 ## Required params
 
-- `src`: Sorce dir to deploy
+- `src`: Source dir to deploy
 - `host`: SSH address
 - `remote`: Remote dir path
 - `port`: SSH Port
