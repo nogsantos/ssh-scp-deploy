@@ -10,6 +10,7 @@ Action to send  dist files to a remote server with  scp command
 - `port`: SSH Port
 - `user`: SSH User name
 - `key`: Private key
+- `options` : Extra options for scp
 
 
 ### To publish
