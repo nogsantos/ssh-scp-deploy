@@ -21,6 +21,9 @@ inputs:
   key:
     description: 'Private key'
     required: true
+  options:
+    description: 'Extra options for scp'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
