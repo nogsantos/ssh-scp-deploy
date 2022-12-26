@@ -3,7 +3,7 @@ description: 'Action to send dist files to a remote server with scp command'
 author: 'Fabricio Nogueira'
 inputs:
   src:
-    description: 'Sorce dir to deploy'
+    description: 'Source dir to deploy'
     required: true
   host:
     description: 'SSH address'
