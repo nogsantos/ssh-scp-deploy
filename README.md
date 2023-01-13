@@ -52,7 +52,7 @@ jobs:
       - run: npm run generate
       
       - name: Publish
-        uses: nogsantos/scp-deploy@master
+        uses: nogsantos/ssh-scp-deploy@master
         with:
           src: ./dist/*
           host: ${{ secrets.SSH_HOST }}
